@@ -4,9 +4,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 //console: 
-//php artisan make:migration create_books_table
+//php artisan make:migration create_members_table
 //php artisan migrate
-class CreateBooksTable extends Migration
+class CreateMembersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,12 +15,12 @@ class CreateBooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('books', function(Blueprint $table)
+        Schema::create('members', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('title');
-            $table->string('author');
-            $table->string('isbn');
+            $table->string('name');
+            $table->string('address');
+            $table->string('phone_number');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateBooksTable extends Migration
      */
     public function down()
     {
-        Schema::drop('books');
+        Schema::drop('members');
     }
 }
