@@ -12,7 +12,7 @@
 */
 
 $app->get('/', function() use ($app) {
-    return "Lumen RESTful API By dremi (http://coderexample.com)";
+    return "Lumen RESTful API By dremi (http://dremi.net)";
 });
  
 $app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers'], function($app)
@@ -26,4 +26,17 @@ $app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers'], functi
     $app->put('book/{id}','BookController@updateBook');
       
     $app->delete('book/{id}','BookController@deleteBook');
+});
+ 
+$app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers'], function($app)
+{
+    $app->get('member','MemberController@index');
+  
+    $app->get('member/{id}','MemberController@getmember');
+      
+    $app->post('member','MemberController@createMember');
+      
+    $app->put('member/{id}','MemberController@updateMember');
+      
+    $app->delete('member/{id}','MemberController@deleteMember');
 });
